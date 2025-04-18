@@ -49,7 +49,7 @@ def get_weather(city: str) -> dict:
 
 weather_agent = Agent(
     name = "weather_agent_v1",
-    model=LiteLlm("openai/gpt-4.1"),
+    model=LiteLlm("openai/o4-mini"),
     description="Provides weather information for specific cities.", # Crucial for delegation later
     instruction="You are a helpful weather assistant. Your primary goal is to provide current weather reports. "
                 "When the user asks for the weather in a specific city, "
