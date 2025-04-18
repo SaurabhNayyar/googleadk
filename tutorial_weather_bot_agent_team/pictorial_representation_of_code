@@ -1,0 +1,67 @@
++-------------------------------+
+|          Main Script          |
++-------------------------------+
+| Import Required Libraries     |
+| (google.adk, asyncio, etc.)   |
++-------------------------------+
+                |
+                v
++-------------------------------+
+| Define the `get_weather` Tool|
++-------------------------------+
+| - Accepts a city name         |
+| - Normalizes input            |
+| - Checks mock weather database|
+| - Returns weather info or     |
+|   error message               |
++-------------------------------+
+                |
+                v
++-------------------------------+
+| Create Weather Agent          |
++-------------------------------+
+| - Uses `Agent` class          |
+| - Model: LiteLlm (GPT-4.1)    |
+| - Description & Instructions  |
+| - Includes `get_weather` tool |
++-------------------------------+
+                |
+                v
++-------------------------------+
+| Initialize Session Service    |
++-------------------------------+
+| - Uses `InMemorySessionService`|
+| - Creates a session with      |
+|   app_name, user_id, etc.     |
++-------------------------------+
+                |
+                v
++-------------------------------+
+| Initialize Runner             |
++-------------------------------+
+| - Orchestrates interaction    |
+| - Routes user input to agent  |
+| - Manages LLM calls & tools   |
+| - Updates session state       |
++-------------------------------+
+                |
+                v
++-------------------------------+
+| Define Async Functions        |
++-------------------------------+
+| 1. `call_agent_async(query)`  |
+|    - Sends user query to agent|
+|    - Processes agent response |
+|    - Handles errors/escalation|
+| 2. `run_conversation()`       |
+|    - Calls `call_agent_async` |
+|      for multiple queries     |
++-------------------------------+
+                |
+                v
++-------------------------------+
+| Run Async Main Function       |
++-------------------------------+
+| - Calls `run_conversation()`  |
+| - Prints agent responses      |
++-------------------------------+
