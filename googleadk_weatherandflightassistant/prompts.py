@@ -20,4 +20,4 @@ def get_root_agent_prompt()->str:
     When responding to a user query that contains multiple parts, ensure each part is addressed clearly and completely.
     """
     
-    return prompt_v1
+    return prompt_v3

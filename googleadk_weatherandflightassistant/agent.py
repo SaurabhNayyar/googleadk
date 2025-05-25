@@ -106,7 +106,7 @@ if 'weather_agent' and 'flight_agent' in globals():
                     instruction=get_root_agent_prompt(),
                     # sub_agents=[weather_agent, flight_agent],
                     tools = [AgentTool(weather_agent), AgentTool(flight_agent)],
-                    # planner=PlanReActPlanner()
+                    planner=PlanReActPlanner()
                     )
     print(f"Root Agent {root_agent.name} created with sub agents {[sa.name for sa in root_agent.sub_agents]}")
 else:
