@@ -1,7 +1,7 @@
 # README.md
 
 ## Project Overview
-This project, `googleadk`, is designed to provide tools and utilities for handling flight-related data, including airport codes, flight details, weather information, and validation of flight requests.
+This project, `googleadk_weatherandflightassistant`, is designed to provide tools and utilities for handling flight-related data, including airport codes, flight details, weather information, and validation of flight requests.
 
 ## Project Structure
 - `__init__.py`: Marks the directory as a Python package.
