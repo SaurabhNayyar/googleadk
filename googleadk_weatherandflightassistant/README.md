@@ -28,6 +28,8 @@ The project requires the following environment variables to be set in a `.env` f
 - **`AZURE_API_BASE`**: The base URL for Azure API endpoints.
 - **`AZURE_API_VERSION`**: The version of the Azure API to use.
 - **`GOOGLE_WEATHER_API_KEY`**: The API key for accessing Google Weather services.
+- **`OPENAI_API_KEY`**: The API key for accessing OpenAI services.
+- **`GOOGLE_API_KEY`**: The API key for accessing Google services.
 
 ### Example `.env` File
 Create a `.env` file in the root of your project and include the following:

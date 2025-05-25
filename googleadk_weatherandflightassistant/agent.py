@@ -21,7 +21,8 @@ import asyncio
 from dotenv import load_dotenv, find_dotenv
 from datetime import datetime
 
-MODEL_NAME = "azure/gpt-4"
+# MODEL_NAME = "openai/gpt-4"
+MODEL_NAME = "gemini-2.0-flash"
 
 load_dotenv(find_dotenv(".env"))
 
@@ -41,7 +42,8 @@ country_agent=None
 try:
     country_agent = Agent(name="country_agent",
                         description="Fetches information about a country.",
-                        model=LiteLlm(model=MODEL_NAME),
+                        # model=LiteLlm(model=MODEL_NAME),
+                        model=MODEL_NAME,
                         instruction="You are a country assistant."
                         "You return the currency, language, capital city, calling code and region about a requested country ."
                         "You MUST use 'get_country_details' tool to get the country information."
@@ -56,7 +58,8 @@ weather_agent=None
 try:
     weather_agent = Agent(name="weather_agent",
                         description="Fetches weather information for a city",
-                        model=LiteLlm(model=MODEL_NAME),
+                        # model=LiteLlm(model=MODEL_NAME),
+                        model=MODEL_NAME,
                         instruction="You are a weather assistant"
                         "You return the weather of a city mentioned by user in their request."
                         "You MUST use 'get_weather' tool to get the weather details."
@@ -71,7 +74,8 @@ flight_agent = None
 try:
     flight_agent = Agent(name='flight_agent',
                         description='Fetches flight information between two cities',
-                        model=LiteLlm(model=MODEL_NAME),
+                        # model=LiteLlm(model=MODEL_NAME),
+                        model=MODEL_NAME,
                         instruction = (
                             "You are a flight search assistant."
                             "Your task is to return the available flights between two cities requested by the user."
@@ -97,11 +101,12 @@ except Exception as e:
 root_agent=None
 if 'weather_agent' and 'flight_agent' in globals():
     root_agent = Agent(name = "root_agent",
-                    model=LiteLlm(model=MODEL_NAME),
+                    # model=LiteLlm(model=MODEL_NAME),
+                    model=MODEL_NAME,
                     instruction=get_root_agent_prompt(),
                     # sub_agents=[weather_agent, flight_agent],
                     tools = [AgentTool(weather_agent), AgentTool(flight_agent)],
-                    planner=PlanReActPlanner()
+                    # planner=PlanReActPlanner()
                     )
     print(f"Root Agent {root_agent.name} created with sub agents {[sa.name for sa in root_agent.sub_agents]}")
 else:
@@ -129,7 +134,7 @@ def call_agent_async(query:str, runner: Runner, user_id:str, session_id:str)->st
         if event.is_final_response():
             if event.content and event.content.parts:
                 # Assuming text response in the first part
-                final_response_text = event.content.parts[1].text
+                final_response_text = event.content.parts[0].text
             elif event.actions and event.actions.escalate: # Handle potential errors/escalations
                 final_response_text = f"Agent escalated: {event.error_message or 'No specific message.'}"
             # Add more checks here if needed (e.g., specific error codes)

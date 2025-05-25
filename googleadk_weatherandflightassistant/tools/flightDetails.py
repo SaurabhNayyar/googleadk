@@ -2,7 +2,7 @@ import csv
 from fast_flights import FlightData, Passengers, Result, get_flights
 
 
-FILE_PATH = 'data/city_airport_codes.csv'
+FILE_PATH = 'googleadk_weatherandflightassistant/data/city_airport_codes.csv'
 
 def get_airport_code(city_name, file_path=FILE_PATH):
     """
@@ -70,14 +70,14 @@ if __name__ == "__main__":
         flight_date="2025-05-30",
         from_city="Minneapolis",
         to_city="Calgary",
-        trip="one-way",
-        seat="economy",
-        adults=1,
-        children=0,
+        trip_detail="one-way",
+        seat_class="economy",
+        adults_count=1,
+        children_count=0,
         infants_in_seat=0,
         infants_on_lap=0
     )
-    # print(result)
+    print(result)
     # print(f"We found {len(result)} flights.\n")
     # print(result)
     for flight in result['flight_info']:
