@@ -11,8 +11,9 @@ from datetime import datetime
 
 
 
-st.title("Google ADK Agent Integration")
-st.markdown("Interact with the Google ADK agent through this UI.")
+st.title("Weather and Flight Assistant")
+st.subheader("Google ADK Agent")
+# st.markdown("Interact with the Google ADK agent through this UI.")
 
 # Initialize chat history if empty
 if "messages" not in st.session_state:
