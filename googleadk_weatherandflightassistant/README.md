@@ -24,6 +24,7 @@ This project, `googleadk_weatherandflightassistant`, is designed to provide tool
 The project requires the following environment variables to be set in a `.env` file located in the root of the workspace:
 
 ### Required Variables
+**`The Required Variables can be chosen based on the LLM you use, not all are required`**
 - **`AZURE_API_KEY`**: The API key for accessing Azure services.
 - **`AZURE_API_BASE`**: The base URL for Azure API endpoints.
 - **`AZURE_API_VERSION`**: The version of the Azure API to use.
